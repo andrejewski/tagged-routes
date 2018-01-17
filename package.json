@@ -1,0 +1,37 @@
+{
+  "name": "tagged-routes",
+  "description": "Routing with tagged unions",
+  "version": "0.0.0",
+  "author": "Chris Andrejewski <christopher.andrejewski@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/andrejewski/tagged-routes/issues"
+  },
+  "dependencies": {
+    "invariant": "^2.2.2",
+    "path-to-regexp": "^2.1.0",
+    "tagmeme": "0.0.6"
+  },
+  "devDependencies": {
+    "ava": "^0.24.0",
+    "fixpack": "^2.3.1",
+    "standard": "^10.0.3"
+  },
+  "files": [],
+  "homepage": "https://github.com/andrejewski/tagged-routes#readme",
+  "keywords": [
+    "route",
+    "tagged",
+    "union",
+    "url"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrejewski/tagged-routes.git"
+  },
+  "scripts": {
+    "lint": "fixpack && standard --fix",
+    "test": "npm run lint && ava"
+  }
+}
