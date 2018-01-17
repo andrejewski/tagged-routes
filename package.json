@@ -1,7 +1,7 @@
 {
   "name": "tagged-routes",
   "description": "Routing with tagged unions",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Chris Andrejewski <christopher.andrejewski@gmail.com>",
   "bugs": {
     "url": "https://github.com/andrejewski/tagged-routes/issues"
