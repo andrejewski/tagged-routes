@@ -1,3 +1,11 @@
 language: node_js
 node_js:
 - node
+deploy:
+  provider: npm
+  email: christopher.andrejewski@gmail.com
+  api_key:
+    secure: Sf96ih6vQw36Tf0WgJn67Q1POwM73XuFCjodrWC13Xp/m8+b23F77DnnI64bRR6JdFbig/0sZjUwwE+OPyAb/ktppZrllIWQXMbOynGtmztMLDqXjPljjqPTfhNA5fw7BHWaFNsREzaqQPLv9/z0iyt52aPvhUcYJSYppV84Bye7nLGJRAgx/qzBSGNO/9JkLXR9HGCvTln9FI6afB2R97SXaQfJh3i0ivKVVKuvUcOKHZedVaBgtRF6e74JqP0gvW2dfWqJqTylDRdn3racy/AUuwkwJ8nlRjTGuA9OykgdcBiZB0Z09acGrH8tixavBzb1PWkKeak+Bdmgc9eSXqdc/VgTsF52bOh1FkeCkWy/ZLTF4dyIaphZvduN9rkD2+MOkG3xPY058c0OEKid4AzQQCq7A9+RDmf2kjW9zZytY5NmM9lnFUZ2IqIP7p4e6dbD++Ouet18DpdtkpC56W4+OJnAkKs9QGDmWzs8LToiKDK2GTvAOp4hcchppOb3ddvvh8PfGztDFn0lLGN2wAhvKDN/2mf58aJF112bDOx7JeU53DUUXQJzBYZDHhGUKWH6HpqUp9iUejnGVxAkDNOJZn58uE4qkRwXGsOPQTjtafP7pg1gADrGOC7Wx7Rz58BHjSJHAkPTNIxSe8V+XFHuYS1nBk/T36i+E888vmQ=
+  on:
+    tags: true
+    repo: andrejewski/tagged-routes

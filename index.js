@@ -6,7 +6,7 @@ const {
 const pathToRegexp = require('path-to-regexp')
 const invariant = require('invariant')
 
-function createRoutes(table, catchAllKind) {
+function createRoutes (table, catchAllKind) {
   const kinds = Object.keys(table)
   const Route = union(kinds.concat(catchAllKind))
 
@@ -71,7 +71,7 @@ function createRoutes(table, catchAllKind) {
 
   return {
     Route,
-    getRouteForURL(url) {
+    getRouteForURL (url) {
       const parts = url.split('?')
       const path = parts[0]
       const query = parts[1] || ''
@@ -102,7 +102,7 @@ function createRoutes(table, catchAllKind) {
         queryParams
       })
     },
-    getURLForRoute(route) {
+    getURLForRoute (route) {
       return Route.match(route, routeUrlMap)
     }
   }
