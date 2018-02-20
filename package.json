@@ -14,7 +14,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "fixpack": "^2.3.1",
-    "standard": "^10.0.3"
+    "standard": "^11.0.0"
   },
   "files": [],
   "homepage": "https://github.com/andrejewski/tagged-routes#readme",
