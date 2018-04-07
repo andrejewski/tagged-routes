@@ -55,8 +55,8 @@ console.log(getURLForRoute(exemplarRoute))
 
 ## Documentation
 
-### `createRoutes(routeTable, catchAllRouteKind: string)`
-Accepts a `routeTable` object with route kinds (types of Route) as keys and valid [`path-to-regexp`](https://github.com/pillarjs/path-to-regexp) paths as values along with a catch-all route kind `catchAllRouteKind`.
+### `createRoutes(routeTable, catchAllRouteKind: string, options?: object)`
+Accepts a `routeTable` object with route kinds (types of Route) as keys and valid [`path-to-regexp`](https://github.com/pillarjs/path-to-regexp) paths as values along with a catch-all route kind `catchAllRouteKind`. The `options` are passed to `path-to-regexp` and `options.encode` is passed to `path-to-regexp.compile` URL builders to override the `encodeURIComponent` default.
 
 Returns an object containing the below `Route` union and functions.
 

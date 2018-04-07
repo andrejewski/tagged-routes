@@ -140,3 +140,19 @@ test('createRoutes().getURLForRoute should throw if missing routePath for catch-
     getURLForRoute(Route.NotFound({}))
   }, /route requires a/)
 })
+
+test('createRoutes().getURLForRoute should use the encode option if provided', t => {
+  const { Route, getURLForRoute } = createRoutes(
+    { Test: '/:foo/:bar/:baz' },
+    'NotFound',
+    {
+      encode: (value, token) => token.name
+    }
+  )
+  t.is(
+    getURLForRoute(
+      Route.Test({ routeParams: { foo: 'a', bar: 'b', baz: 'c' } })
+    ),
+    '/foo/bar/baz'
+  )
+})

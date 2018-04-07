@@ -6,9 +6,16 @@ const {
 const pathToRegexp = require('path-to-regexp')
 const invariant = require('invariant')
 
-function createRoutes (table, catchAllKind) {
+const routeSplatPattern = '.*'
+
+function defaultEncode (value, token) {
+  return token.pattern === routeSplatPattern ? value : encodeURIComponent(value)
+}
+
+function createRoutes (table, catchAllKind, options) {
   const kinds = Object.keys(table)
   const Route = union(kinds.concat(catchAllKind))
+  const encode = (options && options.encode) || defaultEncode
 
   const kindKeysMap = {}
   const compiledPathCreators = {}
@@ -16,7 +23,7 @@ function createRoutes (table, catchAllKind) {
   const matchers = kinds.map(kind => {
     const url = table[kind]
     const keys = []
-    const test = pathToRegexp(url, keys)
+    const test = pathToRegexp(url, keys, options)
 
     kindKeysMap[kind] = keys
     compiledPathCreators[kind] = pathToRegexp.compile(url)
@@ -36,15 +43,7 @@ function createRoutes (table, catchAllKind) {
           )
         })
       }
-      const path = compiledPathCreators[kind](
-        params,
-        routeSplat
-          ? {
-            encode: x =>
-              (x === routeSplat ? routeSplat : encodeURIComponent(x))
-          }
-          : undefined
-      )
+      const path = compiledPathCreators[kind](params, { encode })
       const query = stringifyQueryParams(queryParams)
       return query.length ? `${path}?${query}` : path
     }
@@ -86,7 +85,7 @@ function createRoutes (table, catchAllKind) {
           const routeParams = {}
           keys.forEach((key, index) => {
             const value = match[index + 1]
-            if (key.pattern === '.*') {
+            if (key.pattern === routeSplatPattern) {
               routeSplat = value
             }
 
