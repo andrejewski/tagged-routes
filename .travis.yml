@@ -9,3 +9,4 @@ deploy:
   on:
     tags: true
     repo: andrejewski/tagged-routes
+  skip_cleanup: true

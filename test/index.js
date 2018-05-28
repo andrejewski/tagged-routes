@@ -1,5 +1,5 @@
 import test from 'ava'
-import { createRoutes } from '../index'
+import { createRoutes } from '../src'
 
 test('createRoutes().Routes should have all kinds', t => {
   const { Route } = createRoutes(
